@@ -32,6 +32,7 @@ const prepareDOMEvents = () => {
 	ulList.addEventListener('click', checkClick)
 	popupCloseBtn.addEventListener('click', closePopup)
 	popupAddBtn.addEventListener('click', changeTodoText)
+	todoInput.addEventListener('keyup', enterKeyCheck)
 }
 
 const addNewTodo = () => {
@@ -104,6 +105,12 @@ const deleteTodo = e => {
 
 	if (allTodos.length === 0) {
 		errorInfo.textContent = 'Brak zadań ńa liście.'
+	}
+}
+
+const enterKeyCheck = e => {
+	if (e.key === 'Enter') {
+		addNewTodo()
 	}
 }
 document.addEventListener('DOMContentLoaded', main)
